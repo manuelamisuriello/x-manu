@@ -1,0 +1,362 @@
+:root {
+    --primary:#255266;
+    --accent:#FF0000;
+    --style: #000000;
+    --glow-color: hsl(186 100% 69%);
+}
+.check {
+    border: 1px solid red;
+}
+body {
+  font-family: 'Jura', sans-serif;
+  background-color: #dcfbfc ;
+  overflow-x: hidden;
+}
+/* HEADER */
+.bgHeader {
+  background: linear-gradient(#00000000, #00000000),url('/public/media/Code.png');
+  width: 100%;
+  height: 70vh;
+  background-size: cover;
+}
+h1 {
+  font-family: 'Jura', sans-serif;
+  font-size: 65px;
+  letter-spacing: 12px;
+  color: white;
+}
+h1:hover {
+  color: var(--accent);
+}
+.motto {
+  color: var(--primary);
+  background-color: #dcfbfc;
+  font-size: 25px;
+}
+.motto:hover {
+  font-weight: bold;
+}
+.glowing-btn {
+  font-size: 1.2em;
+  color: var(--glow-color);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.glowing-btn {
+  position: relative;
+  color: var(--glow-color);
+  cursor: pointer;
+  padding: 0.35em 1em;
+  border: 0.10em solid var(--glow-color);
+  border-radius: 0.45em;
+  background: none;
+  perspective: 1em;
+  font-family: 'Jura', sans-serif;
+  font-size: 1em;
+  font-weight: 900;
+  letter-spacing: 0.5em;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+
+.glowing-txt {
+  float: left;
+  margin-right: -0.8em;
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+
+.faulty-letter {
+  opacity: 0.5;
+  animation: faulty-flicker 2s linear infinite;
+}
+
+.glowing-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  filter: blur(1em);
+  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
+  background: var(--glow-color);
+  pointer-events: none;
+}
+
+.glowing-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: -1;
+  background-color: var(--glow-color);
+  box-shadow: 0 0 2em 0.2em var(--glow-color);
+  transition: opacity 100ms linear;
+}
+
+.glowing-btn:hover {
+  color: rgba(0, 0, 0, 0.8);
+  text-shadow: none;
+  animation: none;
+}
+
+.glowing-btn:hover .glowing-txt {
+  animation: none;
+}
+
+.glowing-btn:hover .faulty-letter {
+  animation: none;
+  text-shadow: none;
+  opacity: 1;
+}
+
+.glowing-btn:hover:before {
+  filter: blur(1.5em);
+  opacity: 1;
+}
+
+.glowing-btn:hover:after {
+  opacity: 1;
+}
+
+@keyframes faulty-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 0.5;
+  }
+  19% {
+    opacity: 0.5;
+  }
+  21% {
+    opacity: 0.1;
+  }
+  23% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  83% {
+    opacity: 0.4;
+  }
+
+  87% {
+    opacity: 1;
+  }
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* navbar */
+.navbar {
+    border-bottom: 1px solid black;
+    background-color:  #dcfbfc;
+}
+.navbar2 {
+  border-bottom: 1px solid black;
+  background-color:  #dcfbfc;
+  position:sticky(top 80px);
+}
+.nav-item {
+  list-style-type: none;
+}
+.nav-link {
+  color: #255266;
+}
+.nav-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+.nav-link:active {
+    color: var(--accent);
+    text-decoration: underline;
+}
+.auth-link{
+  display: flex;
+  justify-content: end;
+  list-style-type: none;
+}
+.logo {
+    width:180px;
+    height:45px;
+}
+
+/* ARTICLES */
+
+.firstSection {
+  background: linear-gradient(#00000000, #00000000),url('/public/media/Debug.png');
+  background-position: center;
+  background-size: cover;
+}
+.iconCustom {
+  font-size: 70px;
+  color: #dcfbfc;
+  display: flex;
+  margin-top: 5%;
+  
+}
+.iconCustom:hover {
+  color: var(--accent);
+  font-size: 75px;
+  animation-duration: 1s;
+}
+h3 {
+  font-size:70px;
+  letter-spacing: 5px;
+  color: var(--accent);
+}
+.cardText {
+  color:#dcfbfc;
+  font-weight:bold;
+  font-size:15px;
+}
+.cardText:hover {
+  color: var(--accent);
+}
+.bgLogin {
+  width:100%;
+  height: 100vh;
+  background: linear-gradient(#00000000, #00000000),url('/public/media/header2.png');
+  background-position: center;
+  background-size: cover;
+}
+.formLogin {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 80%;
+  background-color: #255266;
+  color: #255266;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #000000;
+}
+.bgRegister {
+  width:100%;
+  height: 100vh;
+  background: linear-gradient(#00000000, #00000000),url('/public/media/Debug.png');
+  background-position: center;
+  background-size: cover;
+}
+.formRegister {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 80%;
+  background-color: #255266;
+  color: #255266;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #000000;
+}
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+
+@media only screen and (max-width: 575.98px) {
+  .navbar{
+    border-bottom: none;
+    width: 100%;
+  }
+  h1{
+    text-align: center;
+    font-size:40px;
+  }
+  .motto {
+    text-align: center;
+  }
+  .glowing-btn{
+    font-size: 0.8em;
+  }
+
+}
